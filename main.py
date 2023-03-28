@@ -14,10 +14,11 @@ if __name__ == "__main__":
     demo = 1 # 1: image, 2 video
 
     if demo == 1:
-        imagepath = 'examples/spitfire_road_pic.jpg'
+        #imagepath = 'examples/spitfire_road_pic.jpg'
+        imagepath = 'examples/test3.jpg'
         img = cv2.imread(imagepath)
         img_aug = process_frame(img)
-        cv2.imwrite("examples/spitfire_road_pic_augmented.jpg", img_aug)
+        cv2.imwrite("examples/Pat_Testing2.jpg", img_aug)
 
         f, (ax1, ax2) = plt.subplots(1, 2, figsize=(25, 9))
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -27,10 +28,13 @@ if __name__ == "__main__":
         ax2.imshow(img_aug)
         ax2.set_title('Augmented Image', fontsize=30)
         plt.show()
+        
 
     else:
-        video_output = 'examples/spitfire_road_video_augmented.mp4'
-        clip1 = VideoFileClip("examples/spitfire_road_video.mp4")
+        #video_output = 'examples/spitfire_road_video_augmented.mp4'
+        video_output = 'examples/Pat_Testing.mp4'
+        #clip1 = VideoFileClip("examples/spitfire_road_video.mp4")
+        clip1 = VideoFileClip("examples/project_video.mp4")
 
         clip = clip1.fl_image(process_frame) #NOTE: it should be in BGR format
         clip.write_videofile(video_output, audio=False)
