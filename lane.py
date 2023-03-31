@@ -426,9 +426,13 @@ def off_center(left, mid, right):
 
 
     # Send a value to the Arduino
-    if (offset > .15 or offset < -.15):
+    #if (offset > .15 or offset < -.15):
         #ser.write(b'1')
-        print("off center by : ", offset)
+    #    print("off center by : ", offset)
+
+    #if (offset < .15 and offset > -.15):
+        #ser.write(b'0')
+    #    print("on center ")
     
 
     return offset
@@ -622,7 +626,7 @@ def process_frame(img, visualization=False):
 
     # combine all images into final video output (only for visualization purpose)
     output = create_output_frame(offcenter, pts, img_undist_, fps, curvature, curve_direction, binary_sub)
-    return output
+    return output, offcenter
 
 
 
